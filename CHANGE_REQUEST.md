@@ -113,6 +113,23 @@ This file tracks structured change requests for the project.
 - Risk: `MEDIUM`
 - Human-check-needed item: `none`
 
+### CR-007
+
+- Change Item ID: `CR-007`
+- User request text: Make the enemy win clashes when lengths are equal, and make the enemy actively try to eat food while fleeing or pressuring the player depending on relative length.
+- Request summary: Improve enemy snake AI and tie-breaking behavior.
+- Request category: `GAME_LOGIC`
+- Current action: `ACTING`
+- Baseline action: `Preserve existing structure and isolate the minimum change`
+- Implementation approach: Update the clash comparison so equal length favors the enemy, and adjust enemy movement to prefer food while fleeing or hunting based on relative length.
+- Impacted files: `game.js`, `index.html`
+- Allowed change scope: Snake AI, collision resolution, and explanatory game notes only.
+- Proposed target behavior: Equal-length clashes go to the enemy, the enemy chases food, and the enemy behavior shifts between escape and pressure depending on length.
+- Verification approach: Inspect the updated logic and run local syntax/server checks.
+- Regression scope: Player movement, restart flow, score handling, and mobile controls.
+- Risk: `MEDIUM`
+- Human-check-needed item: `none`
+
 ## Category List
 
 - `BUG`

@@ -15,6 +15,8 @@ const SPEED_STEP = 4;
 const MIN_SPEED = 95;
 const PLAYER_WIN_BONUS = 50;
 const ENEMY_LENGTH = 4;
+const FOOD_WEIGHT = 2;
+const CHASE_WEIGHT = 6;
 
 let context = null;
 let loopTimer = 0;
@@ -101,6 +103,10 @@ function hasCell(segments, cell) {
   return segments.some((segment) => sameCell(segment, cell));
 }
 
+function manhattanDistance(a, b) {
+  return Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+}
+
 function getDirectionOptions(currentDirection) {
   return [
     { x: 0, y: -1 },
@@ -110,38 +116,59 @@ function getDirectionOptions(currentDirection) {
   ].filter((candidate) => !isOppositeDirection(candidate, currentDirection));
 }
 
-function canEnemyStep(candidateDirection) {
-  if (!enemySnake.length) {
-    return false;
+function getEnemyTargets() {
+  return enemySnake.length < snake.length ? 'flee' : 'hunt';
+}
+
+function scoreEnemyMove(nextHead, mode) {
+  const playerHead = snake[0];
+  const distanceToPlayer = manhattanDistance(nextHead, playerHead);
+  const distanceToFood = manhattanDistance(nextHead, food);
+
+  if (mode === 'flee') {
+    return (distanceToPlayer * CHASE_WEIGHT) - (distanceToFood * FOOD_WEIGHT);
   }
 
-  const nextHead = {
-    x: enemySnake[0].x + candidateDirection.x,
-    y: enemySnake[0].y + candidateDirection.y,
-  };
-
-  if (!isInBounds(nextHead)) {
-    return false;
-  }
-
-  return !hasCell(enemySnake.slice(0, -1), nextHead);
+  return ((GRID_SIZE * 2 - distanceToPlayer) * CHASE_WEIGHT)
+    + ((GRID_SIZE * 2 - distanceToFood) * FOOD_WEIGHT);
 }
 
 function getEnemyDirection() {
+  if (!enemySnake.length) {
+    return enemyDirection;
+  }
+
+  const targetMode = getEnemyTargets();
   const options = getDirectionOptions(enemyDirection);
-  const validOptions = options.filter((candidate) => canEnemyStep(candidate));
-  const straightIsValid = canEnemyStep(enemyDirection);
+  const rankedOptions = options
+    .map((candidate) => {
+      const nextHead = {
+        x: enemySnake[0].x + candidate.x,
+        y: enemySnake[0].y + candidate.y,
+      };
 
-  if (straightIsValid && Math.random() < 0.6) {
-    return enemyDirection;
-  }
+      const hitsWall = !isInBounds(nextHead);
+      const hitsOwnBody = hasCell(enemySnake.slice(0, -1), nextHead);
+      const hitsPlayerBody = hasCell(snake, nextHead);
 
-  if (validOptions.length > 0) {
-    return validOptions[Math.floor(Math.random() * validOptions.length)];
-  }
+      if (hitsWall || hitsOwnBody) {
+        return null;
+      }
 
-  if (straightIsValid) {
-    return enemyDirection;
+      if (targetMode === 'flee' && hitsPlayerBody) {
+        return null;
+      }
+
+      return {
+        candidate,
+        score: scoreEnemyMove(nextHead, targetMode) + (candidate.x === enemyDirection.x && candidate.y === enemyDirection.y ? 0.25 : 0),
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.score - a.score);
+
+  if (rankedOptions.length > 0) {
+    return rankedOptions[0].candidate;
   }
 
   const fallback = options.find((candidate) => isInBounds({
@@ -317,8 +344,14 @@ function moveSnake() {
   }
 
   enemyDirection = nextEnemyDirection;
+  const enemyAteFood = sameCell(nextEnemyHead, food);
   enemySnake.unshift(nextEnemyHead);
-  enemySnake.pop();
+  if (!enemyAteFood) {
+    enemySnake.pop();
+  } else {
+    placeFood();
+    updateHud('The enemy grabbed a snack.');
+  }
 
   const playerHead = snake[0];
   const enemyHead = enemySnake[0];
@@ -332,14 +365,13 @@ function moveSnake() {
       placeFood();
       enemySnake = createEnemySnake();
       updateHud('You won the clash! +50 points.');
-    } else if (snake.length < enemySnake.length) {
+    } else {
       gameOverState();
-      updateHud('Game over. The enemy was longer.');
+      updateHud(snake.length === enemySnake.length
+        ? 'Game over. Equal length now favors the enemy.'
+        : 'Game over. The enemy was longer.');
       draw();
       return;
-    } else {
-      enemySnake = createEnemySnake();
-      updateHud('Clash tie. The enemy respawns.');
     }
   }
 

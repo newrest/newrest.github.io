@@ -210,3 +210,21 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - End state: `PASSED`
 - Next action: browser-level visual/gameplay verification or follow-up clarification if the remaining snake rule needs refinement
 - Human-check-needed items: `[?щ엺 ?뺤씤 ?꾩슂]` remaining ambiguous snake-rule note from the earlier review request
+
+### Loop 05
+
+- Loop ID: `LOOP-005`
+- Start time: `2026-07-14`
+- Goal: Improve enemy snake AI so equal-length clashes favor the enemy and the enemy competes for food while fleeing or pressuring the player.
+- Start state: `ACTING`
+- Hypothesis: A small adjustment to collision resolution and enemy move scoring can satisfy the new request without disturbing the rest of the game.
+- Act: Updated the enemy logic to make equal-length clashes favor the enemy, biased enemy movement toward food, and kept the flee/hunt behavior based on relative length.
+- Changed files: `game.js`, `index.html`, `CHANGE_REQUEST.md`, `MEMORY.md`
+- Verifier: `git diff --check`, bundled Node syntax check
+- Test results: Pending after code update
+- Exit code: pending
+- Error fingerprint: none
+- Retry count: 0
+- End state: ACTING
+- Next action: run local server verification, then commit and push if the logic checks out
+- Human-check-needed items: none
