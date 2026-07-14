@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 
 body {
@@ -91,6 +92,21 @@ a {
   padding: 0.65rem 1rem;
   background: #fff;
   color: var(--text);
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.menu-icon {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-icon span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
 }
 
 .site-nav {
@@ -119,6 +135,7 @@ main {
 
 .section {
   scroll-margin-top: 6rem;
+  scroll-snap-align: start;
 }
 
 .hero {
@@ -450,6 +467,10 @@ h2 {
   .menu-toggle {
     width: 100%;
     justify-content: center;
+  }
+
+  .menu-label {
+    font-size: 0.95rem;
   }
 
   .scoreboard {

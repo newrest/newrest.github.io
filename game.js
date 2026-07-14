@@ -334,7 +334,16 @@ function bindControls() {
   }, { passive: false });
 
   if (canvas) {
+    canvas.addEventListener('click', () => {
+      if (!gameActive) {
+        startGame();
+      }
+    });
+
     canvas.addEventListener('pointerdown', (event) => {
+      if (!gameActive) {
+        startGame();
+      }
       swipeStart = { x: event.clientX, y: event.clientY };
     });
 

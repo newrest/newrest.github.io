@@ -49,6 +49,11 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - Current error fingerprint: none
 - Blocker: none
 - Last normal state: `READY`
+- Current Git commit: `a424c3a`
+- Current deployed URL: `https://newrest.github.io`
+- Latest successful deploy: `a424c3a` / `Record GitHub Pages deployment`
+- Latest user-visible change request: contact email update, mobile menu icon, scroll mode, and game-start interaction polish
+- Active change request state: `ACTING`
 
 ## Guardrails
 
@@ -163,3 +168,28 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - End state: `READY`
 - Next action: fix or replace the local server verifier, then do browser-level checks and refine personal content placeholders
 - Human-check-needed items: `[사람 확인 필요]` personal profile content, `[사람 확인 필요]` Step 1 additional game feature, `[사람 확인 필요]` Claude model name actually resolved by CLI
+
+### Change Request Notes
+
+- Current request handling file: `CHANGE_REQUEST.md`
+- Current request workflow state: `CHANGE_INTAKE`
+- Active request scope: document the structured change-request process and keep future edits minimal
+- Rollback note: if a change request conflicts with the deployed site, prefer preserving the deployed baseline and record the conflict as `HITL_REQUIRED`
+
+### Loop 03
+
+- Loop ID: `LOOP-003`
+- Start time: `2026-07-14`
+- Goal: Apply the first reviewed change-request batch to the deployed static site.
+- Start state: `ACTING`
+- Hypothesis: The safest response to the review notes is to implement only the clear UI/content/input polish items and leave ambiguous snake-rule changes unresolved.
+- Act: Updated the contact section to `newrest@gmail.com`, converted the mobile menu button to a hamburger icon, added section scroll snapping, and made the game start on game-board click/tap.
+- Changed files: `index.html`, `styles.css`, `game.js`, `CHANGE_REQUEST.md`, `MEMORY.md`
+- Verifier: `git diff --check`, source search for updated selectors and handlers
+- Test results: Requested contact, menu, scroll, and click-start hooks are present; no browser run yet in this turn; ambiguous snake-rule change remains unresolved
+- Exit code: `0` for `git diff --check`
+- Error fingerprint: `none`
+- Retry count: `0`
+- End state: `PASSED` for CR-001 through CR-004, `HITL_REQUIRED` for CR-005
+- Next action: clarify the ambiguous snake-rule note or run browser-level checks
+- Human-check-needed items: `[사람 확인 필요]` exact snake-rule change requested in the review notes
