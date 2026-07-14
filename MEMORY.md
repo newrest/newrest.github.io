@@ -42,8 +42,8 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 
 ## Current State
 
-- Current status: deployed on GitHub Pages with baseline site and review polish changes; local enemy clash feature implemented and pushed
-- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish, enemy clash feature
+- Current status: deployed on GitHub Pages with polished placeholder profile copy and local enemy clash feature implemented
+- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish, enemy clash feature, profile copy polish
 - Next loop: browser-level verification or follow-up clarification on the remaining ambiguous snake-rule note
 - Current retry count: 0
 - Current error fingerprint: none
@@ -52,7 +52,7 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - Current Git commit: `9ecb9d0`
 - Current deployed URL: `https://newrest.github.io`
 - Latest successful deploy: `537de24` / `Apply review polish changes`
-- Latest user-visible change request: randomly moving enemy, length-based clash resolution, and player +50 bonus
+- Latest user-visible change request: polished placeholder profile copy and enemy clash rules
 - Active change request state: `PASSED` for CR-006; `HITL_REQUIRED` remains only for CR-005
 
 ## Guardrails
