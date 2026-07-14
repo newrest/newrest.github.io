@@ -119,7 +119,7 @@ This file tracks structured change requests for the project.
 - User request text: Make the enemy win clashes when lengths are equal, and make the enemy actively try to eat food while fleeing or pressuring the player depending on relative length.
 - Request summary: Improve enemy snake AI and tie-breaking behavior.
 - Request category: `GAME_LOGIC`
-- Current action: `ACTING`
+- Current action: `PASSED`
 - Baseline action: `Preserve existing structure and isolate the minimum change`
 - Implementation approach: Update the clash comparison so equal length favors the enemy, and adjust enemy movement to prefer food while fleeing or hunting based on relative length.
 - Impacted files: `game.js`, `index.html`

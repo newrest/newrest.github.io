@@ -42,18 +42,18 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 
 ## Current State
 
-- Current status: deployed on GitHub Pages with polished placeholder profile copy and local enemy clash feature implemented
-- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish, enemy clash feature, profile copy polish
+- Current status: deployed on GitHub Pages with polished placeholder profile copy and refined enemy clash AI implemented
+- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish, enemy clash feature, profile copy polish, enemy AI refinement
 - Next loop: browser-level verification or follow-up clarification on the remaining ambiguous snake-rule note
 - Current retry count: 0
 - Current error fingerprint: none
 - Blocker: none
 - Last normal state: `READY`
-- Current Git commit: `9ecb9d0`
+- Current Git commit: `9d27b4b`
 - Current deployed URL: `https://newrest.github.io`
 - Latest successful deploy: `537de24` / `Apply review polish changes`
-- Latest user-visible change request: polished placeholder profile copy and enemy clash rules
-- Active change request state: `PASSED` for CR-006; `HITL_REQUIRED` remains only for CR-005
+- Latest user-visible change request: enemy tie-breaker and enemy food-seeking AI refinement
+- Active change request state: `PASSED` for CR-006 and CR-007; `HITL_REQUIRED` remains only for CR-005
 
 ## Guardrails
 
@@ -221,10 +221,10 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - Act: Updated the enemy logic to make equal-length clashes favor the enemy, biased enemy movement toward food, and kept the flee/hunt behavior based on relative length.
 - Changed files: `game.js`, `index.html`, `CHANGE_REQUEST.md`, `MEMORY.md`
 - Verifier: `git diff --check`, bundled Node syntax check
-- Test results: Pending after code update
-- Exit code: pending
+- Test results: `game.js` passed syntax check; local static server returned HTTP `200 OK`
+- Exit code: `0`
 - Error fingerprint: none
 - Retry count: 0
-- End state: ACTING
-- Next action: run local server verification, then commit and push if the logic checks out
+- End state: `PASSED`
+- Next action: browser-level visual/gameplay verification or any follow-up on the remaining ambiguous snake-rule note
 - Human-check-needed items: none
