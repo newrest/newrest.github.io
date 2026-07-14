@@ -96,6 +96,23 @@ This file tracks structured change requests for the project.
 - Risk: `MEDIUM`
 - Human-check-needed item: Clarify the exact snake-rule change requested by the user.
 
+### CR-006
+
+- Change Item ID: `CR-006`
+- User request text: Add a randomly moving enemy to the snake game, make longer snakes win collisions, and add 50 points when the player wins.
+- Request summary: Extend the snake game with a simple enemy snake and length-based clash resolution.
+- Request category: `GAME_LOGIC`
+- Current action: `PASSED`
+- Baseline action: `Preserve existing structure and isolate the minimum change`
+- Implementation approach: Add a random-moving enemy snake, compare lengths on collision, award 50 points on player wins, and keep the rest of the game flow unchanged.
+- Impacted files: `game.js`, `index.html`
+- Allowed change scope: Snake game logic and explanatory notes only.
+- Proposed target behavior: The game includes a moving enemy, longer snakes win clashes, and player victories add a 50-point bonus.
+- Verification approach: Inspect the updated logic, confirm the rules text, and run local syntax/server checks.
+- Regression scope: Existing food scoring, restart flow, keyboard controls, and mobile touch controls.
+- Risk: `MEDIUM`
+- Human-check-needed item: `none`
+
 ## Category List
 
 - `BUG`
