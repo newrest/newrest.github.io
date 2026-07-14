@@ -42,8 +42,8 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 
 ## Current State
 
-- Current status: deployed on GitHub Pages with polished placeholder profile copy and refined enemy clash AI implemented
-- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish, enemy clash feature, profile copy polish, enemy AI refinement
+- Current status: deployed on GitHub Pages with polished placeholder profile copy, refined enemy clash AI, and dark mode implemented
+- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish, enemy clash feature, profile copy polish, enemy AI refinement, dark mode
 - Next loop: browser-level verification or follow-up clarification on the remaining ambiguous snake-rule note
 - Current retry count: 0
 - Current error fingerprint: none
@@ -52,8 +52,8 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - Current Git commit: `9d27b4b`
 - Current deployed URL: `https://newrest.github.io`
 - Latest successful deploy: `537de24` / `Apply review polish changes`
-- Latest user-visible change request: enemy tie-breaker and enemy food-seeking AI refinement
-- Active change request state: `PASSED` for CR-006 and CR-007; `HITL_REQUIRED` remains only for CR-005
+- Latest user-visible change request: dark mode theme support
+- Active change request state: `PASSED` for CR-006, CR-007, and CR-008; `HITL_REQUIRED` remains only for CR-005
 
 ## Guardrails
 

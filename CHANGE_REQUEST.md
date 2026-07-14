@@ -130,6 +130,23 @@ This file tracks structured change requests for the project.
 - Risk: `MEDIUM`
 - Human-check-needed item: `none`
 
+### CR-008
+
+- Change Item ID: `CR-008`
+- User request text: Add dark mode to the professional website.
+- Request summary: Provide a dark color scheme for the site while preserving the existing layout and content.
+- Request category: `UI_UX`
+- Current action: `PASSED`
+- Baseline action: `Preserve existing structure and isolate the minimum change`
+- Implementation approach: Add a `prefers-color-scheme: dark` override and keep the same page structure.
+- Impacted files: `styles.css`
+- Allowed change scope: Color tokens and theme styling only.
+- Proposed target behavior: The site automatically switches to a dark theme when the browser or OS prefers dark mode.
+- Verification approach: Inspect the CSS theme variables and ensure the site still loads normally.
+- Regression scope: Layout, navigation, and game styling.
+- Risk: `LOW`
+- Human-check-needed item: `none`
+
 ## Category List
 
 - `BUG`
