@@ -7,7 +7,7 @@ This file tracks structured change requests for the project.
 - Change Request ID: `CR-2026-07-14-002`
 - User request summary: Contact email update, mobile menu icon change, scroll mode, and game-start interaction polish.
 - Reference materials: `AORR.md`, `MEMORY.md`, repository files, attached request text
-- Current state: `ACTING`
+- Current state: `HITL_REQUIRED`
 
 ## Change Items
 

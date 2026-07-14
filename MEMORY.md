@@ -42,18 +42,18 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 
 ## Current State
 
-- Current status: deployed on GitHub Pages with baseline site and snake game scaffold
-- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment
-- Next loop: professional content refinement, browser-level verification, and feature polishing
+- Current status: deployed on GitHub Pages with baseline site and review polish changes
+- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish
+- Next loop: clarify the ambiguous snake-rule note or continue browser-level verification
 - Current retry count: 0
 - Current error fingerprint: none
 - Blocker: none
 - Last normal state: `READY`
-- Current Git commit: `a424c3a`
+- Current Git commit: `537de24`
 - Current deployed URL: `https://newrest.github.io`
-- Latest successful deploy: `a424c3a` / `Record GitHub Pages deployment`
+- Latest successful deploy: `537de24` / `Apply review polish changes`
 - Latest user-visible change request: contact email update, mobile menu icon, scroll mode, and game-start interaction polish
-- Active change request state: `ACTING`
+- Active change request state: `HITL_REQUIRED`
 
 ## Guardrails
 
@@ -172,8 +172,8 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 ### Change Request Notes
 
 - Current request handling file: `CHANGE_REQUEST.md`
-- Current request workflow state: `CHANGE_INTAKE`
-- Active request scope: document the structured change-request process and keep future edits minimal
+- Current request workflow state: `HITL_REQUIRED`
+- Active request scope: clear the remaining ambiguous snake-rule note
 - Rollback note: if a change request conflicts with the deployed site, prefer preserving the deployed baseline and record the conflict as `HITL_REQUIRED`
 
 ### Loop 03
