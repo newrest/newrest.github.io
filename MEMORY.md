@@ -49,7 +49,7 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - Current error fingerprint: none
 - Blocker: none
 - Last normal state: `READY`
-- Current Git commit: `537de24`
+- Current Git commit: `f26e69d`
 - Current deployed URL: `https://newrest.github.io`
 - Latest successful deploy: `537de24` / `Apply review polish changes`
 - Latest user-visible change request: contact email update, mobile menu icon, scroll mode, and game-start interaction polish
