@@ -42,18 +42,18 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 
 ## Current State
 
-- Current status: deployed on GitHub Pages with baseline site and review polish changes
-- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish
-- Next loop: clarify the ambiguous snake-rule note or continue browser-level verification
+- Current status: deployed on GitHub Pages with baseline site and review polish changes; local enemy clash feature implemented and pushed
+- Completed loops: repository inspection, `AORR.md` creation, `Self-Correcting TDD Loop` design, baseline scaffold loop, deployment, review polish, enemy clash feature
+- Next loop: browser-level verification or follow-up clarification on the remaining ambiguous snake-rule note
 - Current retry count: 0
 - Current error fingerprint: none
 - Blocker: none
 - Last normal state: `READY`
-- Current Git commit: `f26e69d`
+- Current Git commit: `9ecb9d0`
 - Current deployed URL: `https://newrest.github.io`
 - Latest successful deploy: `537de24` / `Apply review polish changes`
-- Latest user-visible change request: contact email update, mobile menu icon, scroll mode, and game-start interaction polish
-- Active change request state: `HITL_REQUIRED`
+- Latest user-visible change request: randomly moving enemy, length-based clash resolution, and player +50 bonus
+- Active change request state: `PASSED` for CR-006; `HITL_REQUIRED` remains only for CR-005
 
 ## Guardrails
 
@@ -149,7 +149,7 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - Error fingerprint: `environment-http-listener-not-supported`, `claude-review-timeout`
 - Retry count: `0`
 - End state: `READY`
-- Next action: Add professional content and improve responsive layout in the next loop, after personal content is confirmed
+- Next action: Verify the enemy feature in a browser or clarify the remaining ambiguous snake-rule note
 - Human-check-needed items: `[사람 확인 필요]` personal profile content, `[사람 확인 필요]` Claude model name actually resolved by CLI
 ### Loop 02
 
@@ -193,3 +193,20 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - End state: `PASSED` for CR-001 through CR-004, `HITL_REQUIRED` for CR-005
 - Next action: clarify the ambiguous snake-rule note or run browser-level checks
 - Human-check-needed items: `[사람 확인 필요]` exact snake-rule change requested in the review notes
+### Loop 04
+
+- Loop ID: `LOOP-004`
+- Start time: `2026-07-14`
+- Goal: Add a randomly moving enemy to the snake game and resolve clashes by snake length.
+- Start state: `ACTING`
+- Hypothesis: A small enemy snake with length-based collision resolution can be added without disturbing the existing keyboard, touch, and restart flows.
+- Act: Added a randomly moving enemy snake, collision resolution based on snake length, a +50 point bonus for player wins, and a short rules note in the game section.
+- Changed files: `game.js`, `index.html`, `CHANGE_REQUEST.md`, `MEMORY.md`
+- Verifier: `git diff --check`, bundled Node syntax check, bundled Python static server check
+- Test results: `game.js` passed syntax check; `git diff --check` reported only line-ending warnings; local static server returned HTTP `200 OK`
+- Exit code: `0`
+- Error fingerprint: `none`
+- Retry count: `0`
+- End state: `PASSED`
+- Next action: browser-level visual/gameplay verification or follow-up clarification if the remaining snake rule needs refinement
+- Human-check-needed items: `[?щ엺 ?뺤씤 ?꾩슂]` remaining ambiguous snake-rule note from the earlier review request
