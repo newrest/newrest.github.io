@@ -49,7 +49,7 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - Current error fingerprint: none
 - Blocker: none
 - Last normal state: `READY`
-- Current Git commit: `9d27b4b`
+- Current Git commit: `264b4c9`
 - Current deployed URL: `https://newrest.github.io`
 - Latest successful deploy: `537de24` / `Apply review polish changes`
 - Latest user-visible change request: dark mode theme support
@@ -227,4 +227,22 @@ This file tracks the working state and guardrails for the GitHub Pages professio
 - Retry count: 0
 - End state: `PASSED`
 - Next action: browser-level visual/gameplay verification or any follow-up on the remaining ambiguous snake-rule note
+- Human-check-needed items: none
+
+### Loop 06
+
+- Loop ID: `LOOP-006`
+- Start time: `2026-07-14`
+- Goal: Add a dark mode theme to the static professional website.
+- Start state: `ACTING`
+- Hypothesis: A CSS variable-based theme override and a dark theme-color meta tag can add dark mode without changing the site structure.
+- Act: Added `prefers-color-scheme: dark` theme variables, wired the header and panel surfaces to shared color tokens, and added a dark theme-color meta tag.
+- Changed files: `styles.css`, `index.html`, `CHANGE_REQUEST.md`, `MEMORY.md`
+- Verifier: `git diff --check`, bundled Node syntax check, bundled Python static server check
+- Test results: `HTTP 200 OK` from local static server; syntax checks passed
+- Exit code: `0`
+- Error fingerprint: `none`
+- Retry count: `0`
+- End state: `PASSED`
+- Next action: browser-level visual verification if the user wants a live appearance check
 - Human-check-needed items: none
